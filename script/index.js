@@ -1,10 +1,11 @@
-const promise = new myPromise(function(resolve, reject) {
-  console.log('注册promise');
-  setTimeout(function() {
-    resolve(111);
-  }, 5000);
-});
+function Parent(value) {
+  this.value = value;
+  this.name = 'parent';
+}
 
-promise.then(function(data) {
-  console.log(data);
-})
+Parent.prototype.getValue = function() {
+  console.log(this.value);
+}
+
+const parent = create(Parent, 11);
+console.log('parent', parent);
